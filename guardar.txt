@@ -1,0 +1,75 @@
+function random(min, max){
+    return Math.floor((Math.random() * (max - min + 1)) + min);
+}
+
+async function horoscopo(signo) {
+    try {
+        const $ = await request({
+            uri: 'https://www.lanacion.com.ar/horoscopo',
+            transform: body => cheerio.load(body)
+        });
+
+        const info = $(`main article div.listaSignos article.--${signo} div.listaSignos__item__descrip p`);
+
+        return info.text().trim();
+      
+    } catch (e) {
+        console.log(e);
+    }
+}
+
+client.on('message', async (message) => {
+    if (message.body.indexOf("!horoscopo") !== -1) {
+        let signo = (message.body.split(" ")[1]).toLowerCase();
+        let zoodiaco = await horoscopo(signo);
+
+        let r = signo === "aries"? "Aries (21 de marzo-20 de abril)" : 
+                signo === "tauro"? "Tauro (21 de abril-20 de mayo)" :
+                signo === "geminis"? "Geminis (21 de mayo-20 de junio)" :
+                signo === "cancer"? "Cancer (21 de junio-20 de julio)" :
+                signo === "leo"? "Leo (21 de julio-20 de agosto)" :
+                signo === "virgo"? "Virgo (21 de agosto-20 de septiembre)" :
+                signo === "libra"? "Libra (21 de septiembre-20 de octubre)" :
+                signo === "escorpio"? "Escorpio (21 de octubre-20 de noviembre)" :
+                signo === "sagitario"? "Sagitario (21 de noviembre-20 de diciembre)" :
+                signo === "capricornio"? "Capricornio (21 de diciembre-20 de enero)" :
+                signo === "acuario"? "Acuario (21 de enero-20 de febrero)" : "Piscis (21 de febrero-20 de marzo)";
+
+        if (signo !== "aries" && signo !== "tauro" && signo !== "geminis" && 
+            signo !== "cancer" && signo !== "leo" && signo !== "virgo" && 
+            signo !== "libra" && signo !== "escorpio" && signo !== "sagitario" && 
+            signo !== "capricornio" && signo !== "acuario" && signo !== "piscis") {
+            client.sendMessage(message.from, "No existe el signo");
+        } else {
+            let media = MessageMedia.fromFilePath(`img/horoscopo-${signo}.jpg`);
+            await client.sendMessage(message.from, `${r} \n${zoodiaco}`);
+            await client.sendMessage(message.from, media);
+        }
+    }
+});
+
+
+if (message.body === "Hello") {
+        client.sendMessage(message.from, 'World!');
+    }
+
+    if (message.body === "!fecha") {
+        let f = new Date().toISOString().slice(0, 10);
+        let salida = `${f[8]}${f[9]}/${f[5]}${f[6]}/${f[0]}${f[1]}${f[2]}${f[3]}`;
+        client.sendMessage(message.from, `La fecha de hoy es : ${salida}`);
+    }
+
+    if (message.body.indexOf("!suma") !== -1) {
+        let num1 = message.body.split(" ")[1];
+        let num2 = message.body.split(" ")[2];
+        let suma = parseInt(num1) + parseInt(num2);
+        client.sendMessage(message.from, `La suma es: ${suma}`);
+    }
+
+    if (message.body.indexOf("!random") !== -1) {
+        let min = message.body.split(" ")[1];
+        let max = message.body.split(" ")[2];
+
+        let aleatorio = random(parseInt(min), parseInt(max));
+        client.sendMessage(message.from, `El numero aleatorio es: ${aleatorio}`);
+    }

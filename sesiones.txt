@@ -1,0 +1,7 @@
+Graciela Alberco
+{"WABrowserId":"\"QVqd1V3wC6VU5xQtxRnraA==\"","WASecretBundle":"{\"key\":\"FY5XwdHTRInuQeMxCfl2d5hO0dr9mFio35/ZELbN0KU=\",\"encKey\":\"IwiuErwcw7I7LkNN6t31TWEmEWaLVtpcHuhWCT/FP3k=\",\"macKey\":\"FY5XwdHTRInuQeMxCfl2d5hO0dr9mFio35/ZELbN0KU=\"}","WAToken1":"\"gGCdfY2ugVA+dIjOrNk5WR2zWrvxGJmmBzzeuni3e+g=\"","WAToken2":"\"1@Auyrz7wZRpA48Bfg0fvBobZUXn1eRCgURo+/AZmjbc/PKDy8+6dbvVFzNG0sQr8qSewB8WU3KtpM7Q==\""}
+
+Renato Navarro
+{"WABrowserId":"\"yVOKIP4MDvALVA3RvbXrdg==\"","WASecretBundle":"{\"key\":\"eFYpth2btWRYixhUGlDQ4cFsqzGt2yEqfJipvbfe17w=\",\"encKey\":\"MpCEEHg9kHu2U7vELLQ2ANw2oA0S72YgRKY9VDLsqwE=\",\"macKey\":\"eFYpth2btWRYixhUGlDQ4cFsqzGt2yEqfJipvbfe17w=\"}","WAToken1":"\"b+7EpOa5a0cThPc2A8wfCPUvVsiZpxWMJnc0TgTVRpM=\"","WAToken2":"\"1@JTW+xnisOJEUF0eVBp14K2J3MspQ2Zd4uAnrMNb/BNKP/xof9+WCpdojE/6v/MLe6I/pOdUup2OvCg==\""}
+
+Bot UNE
